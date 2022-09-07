@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Interactive card details form</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="left">
+            <div class="card-collection">
+                <div class="top-details">
+                    <img src="" alt="" srcset="bg-card-front.png" class="card top">
+                    <div id="top-card-content">
+                        <img src="card-logo.svg" alt="" srcset="">
+                        <h1 class="top-card-numbers">9591 6589 6389 1011</h1>
+                        <span class="name-date">
+            <h5 class="top-card-name">felicia leire</h5>
+            <h5 class="top-card-date">09/26</h5>
+         </span>
+                    </div>
+                </div>
+                <div id="bottom-card">
+                    <img src="" alt="" srcset="bg-card-back.png" class="card bottom">
+                    <h3 class="bottom-card-number">123</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right">
+
+            <div class="form-thankyou">
+
+                <div class="form" id="form">
+
+                    <form id="form" action="" method="post" name="form">
+
+                        <div class="field">
+                            <label class="name" for="name">card holder name</label>
+                            <input type="text" name="name" id="name" class="name alert" size="35" type="text" placeholder="eg.jane appleseed" required>
+                            <small class="prompt"></small>
+                        </div>
+
+                        <div class="field">
+                            <label class="name" for="number">card number</label>
+                            <input type="text" name="number" class="card-number alert" id="card" size="35" type="number" placeholder="eg.1234 5678 9123 0000" maxlength="20">
+                            <small class="prompt" id="number"></small>
+                        </div>
+
+
+                        <div class="card-extra-details">
+
+                            <div class="field">
+                                <label class="date" for="date">exp . date (mm/yy)</label>
+                                <div class="flex-row">
+                                    <input type="text" name="date" class="month alert" id="date" size="5" placeholder="MM" type="number" maxlength="2" required="required">
+                                    <input type="text" name="date" class="year alert" id="year" size="5" placeholder="YY" type="number" maxlength="2" required>
+                                    <small class="prompt"></small>
+                                </div>
+                            </div>
+
+                            <div class="field" id="cvc">
+                                <label class="name" for="cvc">cvc</label>
+                                <input type="text" name="cvc" class="cvc alert " id="cvcInput" size="12 " placeholder="eg.123 " type="number " maxlength="3" required>
+                                <small class="prompt" id="cvcAlert"></small>
+                            </div>
+
+                        </div>
+                    </form>
+                    <button class="button" id="confirm">confirm</button>
+                </div>
+
+                <div class="thank-you" id="thank-you">
+                    <img src="icon-complete.svg" alt="" srcset="">
+                    <h2 class="thankyou-text">thankyou</h2>
+                    <h5 class="thankyou-note">We've added your card details</h5>
+                    <button class="button" id="continue">continue</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="attribution ">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge " target="_blank ">Frontend Mentor</a>. Coded by <a href="# ">Osele Chidera</a>.
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <script src="form.js "></script>
+</body>
+
+</html>
