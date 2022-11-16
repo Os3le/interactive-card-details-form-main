@@ -38,17 +38,17 @@
 
                 <div class="form" id="form">
 
-                    <form id="form" action="" method="post" name="form">
+                    <form id="formTag" action="" method="get" name="form">
 
                         <div class="field">
                             <label class="name" for="name">card holder name</label>
-                            <input type="text" name="name" id="name" class="name alert" size="35" type="text" placeholder="eg.jane appleseed" required>
+                            <input type="text" name="name" id="name" class="name alert" size="35" type="text" placeholder="eg.jane appleseed" required="required">
                             <small class="prompt"></small>
                         </div>
 
                         <div class="field">
                             <label class="name" for="number">card number</label>
-                            <input type="text" name="number" class="card-number alert" id="card" size="35" type="number" placeholder="eg.1234 5678 9123 0000" maxlength="20">
+                            <input type="text" name="number" class="card-number alert" id="card" size="35" type="number" placeholder="eg.1234 5678 9123 0000" maxlength="20" required="required">
                             <small class="prompt" id="number"></small>
                         </div>
 
@@ -59,20 +59,21 @@
                                 <label class="date" for="date">exp . date (mm/yy)</label>
                                 <div class="flex-row">
                                     <input type="text" name="date" class="month alert" id="date" size="5" placeholder="MM" type="number" maxlength="2" required="required">
-                                    <input type="text" name="date" class="year alert" id="year" size="5" placeholder="YY" type="number" maxlength="2" required>
+                                    <input type="text" name="date" class="year alert" id="year" size="5" placeholder="YY" type="number" maxlength="2" required="required">
                                     <small class="prompt"></small>
                                 </div>
                             </div>
 
                             <div class="field" id="cvc">
                                 <label class="name" for="cvc">cvc</label>
-                                <input type="text" name="cvc" class="cvc alert " id="cvcInput" size="12 " placeholder="eg.123 " type="number " maxlength="3" required>
-                                <small class="prompt" id="cvcAlert"></small>
+                                <input type="text" name="cvc" class="cvc alert " id="cvcInput" size="12 " placeholder="eg.123 " type="number " maxlength="3" required="required">
+                                <small class="prompt" id="cvcprompt"></small>
                             </div>
 
                         </div>
+                        <input type="submit" value="confirm" class="button" id="confirm" onclick="checkEmptyInputs()">
+                        <!-- <button class="button" id="confirm" onclick="checkEmptyInputs()" type="submit" onsubmit="submit(e)">confirm</button> -->
                     </form>
-                    <button class="button" id="confirm">confirm</button>
                 </div>
 
                 <div class="thank-you" id="thank-you">
@@ -90,6 +91,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
     <script src="form.js "></script>
+
+    <!-- COMPLETED -->
 </body>
 
 </html>
