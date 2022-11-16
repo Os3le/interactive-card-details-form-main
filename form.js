@@ -7,6 +7,7 @@ let cvc = document.getElementById("cvcInput")
 let confirm = document.getElementById("confirm")
 let form = document.getElementsByTagName("form")
 let arrayInputs = Array.from(document.getElementsByClassName("alert"))
+let inputs = document.querySelectorAll(".alert")
 
 
 
@@ -25,50 +26,88 @@ card.addEventListener("keyup", function checkInputType() {
 })
 
 
+// onsubmit="checkEmptyInputs"
 
+// let ticker = false;
+// confirm.addEventListener("click", function checkEmptyInputs(event) {
+//     console.log('this button was clicked');
 
+//     cardLength()
+//     cvcLength()
+//     submit()
+// })
+let submitForm;
 
-
-
-confirm.addEventListener("click", function checkEmptyInputs() {
-    document.querySelectorAll(".alert").forEach((e) => {
-        if (!e.value === "") {
-            emptyInputs(e, "")
-
-        } else if (e.value === "") {
-            let warningMessage = "<br>" + "This field cant be blank"
-            emptyInputs(e, warningMessage)
-
-        } else if (card.value.length < 16 & card.value.length > 0) {
-            let warningMessage = "<br>" + "must be 16 characters"
-            promptDataType(warningMessage)
-        } else if (cvc.value.length < 3 && cvc.value.length > 0) {
-            cvcCheck("this field requires 3 values")
-        } else {
-            document.getElementById("thank-you").classList.toggle("thank-you-submitted");
-            document.getElementById("form").style.display = "none"
+function checkEmptyInputs() {
+    console.log('this button was clicked');
+    for (const input of inputs) {
+        if (input.value == "") {
+            emptyInputsPrompt(input, "This field cant be blank")
         }
-    })
+    }
+    cardLength();
+    cvcLength();
+
+
+}
+
+let inputTags = document.getElementsByTagName('input')
+
+document.getElementById('formTag').addEventListener('submit', (e) => {
+    e.preventDefault()
+    console.log('submitted');
+    document.getElementById("thank-you").classList.toggle("thank-you-submitted");
+    document.getElementById("formTag").style.display = "none"
 })
+
+
+document.getElementById('thank-you').addEventListener('click', () => {
+    console.log('submitted');
+    document.getElementById("thank-you").className = "thank-you"
+    document.getElementById("formTag").style.display = "unset";
+
+
+
+    for (const input of inputs) {
+        input.value = ""
+    }
+
+})
+
+
+function cardLength() {
+    if (card.value.length < 16 && card.value.length > 0) {
+        promptDataType(`<br> must be 16 characters`)
+    }
+
+}
+
+function cvcLength() {
+    if (cvc.value.length < 3 && cvc.value.length > 0) {
+        cvcCheck(`<br> must be 3 characters`)
+    }
+}
+
+
 
 function promptDataType(error) {
     let warning = card.parentNode.querySelector("#number");
     warning.innerHTML = error
 }
 
-function cvcCheck(e) {
-    let warning = cvc.parentNode.querySelector("#cvcAlert");
-    warning.innerHTML = e
+function cvcCheck(error) {
+    let warning = cvc.parentNode.querySelector("#cvcprompt");
+    warning.innerHTML = error;
 }
 
 document.querySelectorAll(".alert").forEach((e) => {
     e.addEventListener("keyup", function changeAfterSubmitting() {
-        emptyInputs(e, "")
+        emptyInputsPrompt(e, "")
     })
 })
 
 
-function emptyInputs(inputTag, warning) {
+function emptyInputsPrompt(inputTag, warning) {
     let warnings = inputTag.parentNode.querySelector(".prompt");
-    warnings.innerHTML = warning
+    warnings.innerHTML = warning;
 }
